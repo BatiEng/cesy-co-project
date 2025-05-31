@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+body {
+  font-family: "'Playfair Display', serif";
+  background-color: #fffff6;
+}
+html {
+  scroll-behavior: smooth;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade {
+  animation: fade 0.3s ease-out forwards;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.animate-zoom {
+  animation: zoom 0.3s ease-out forwards;
+}
+.big-title {
+  font-size: 14rem;
+}
+@media (max-width: 1354px) {
+  .big-title {
+    font-size: 12rem;
+  }
+  .hero-subtitle {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 1165px) {
+  .big-title {
+    font-size: 10rem;
+  }
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 970px) {
+  .big-title {
+    font-size: 7rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-title {
+    font-size: 2rem;
+  }
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 680px) {
+  .big-title {
+    font-size: 4rem;
+  }
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 680px) {
+  .big-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 0.5rem;
+  }
+}
+.hero {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  transition: background-image 0.8s ease-in-out;
+}
+.hero-workshop {
+  background-image: url("./assets/18.png");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  transition: background-image 0.8s ease-in-out;
+}
+.hero-kids {
+  background-image: url("./assets/19.png");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  transition: background-image 0.8s ease-in-out;
+}
+.hero-coffee {
+  background-image: url("./assets/20.png");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  transition: background-image 0.8s ease-in-out;
+}
+.bg-default {
+  background-image: url("./assets/18.png");
+}
+
+.bg-kids {
+  background-image: url("./assets/19.png");
+}
+
+.bg-coffee {
+  background-image: url("./assets/20.png");
+}
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
