@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react"; // Optional: install lucide-react for icons
 import { useNavigate } from "react-router-dom";
 
@@ -6,6 +6,19 @@ const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    // Clean up on unmount
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [menuOpen]);
 
   return (
     <>
