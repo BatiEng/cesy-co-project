@@ -24,8 +24,9 @@ const HomePage = () => {
   if (!bgLoaded) {
     return (
       <div className="relative">
-        <div className="absolute inset-0 flex justify-center items-center bg-black text-white z-20">
-          Loading...
+        <div className="absolute inset-0 flex-row justify-center items-center bg-black text-white z-20">
+          <h3 className="bg-title">Cesy Co.</h3>
+          <p>Loading...</p>
         </div>
       </div>
     );
