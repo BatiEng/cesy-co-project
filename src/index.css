@@ -125,7 +125,7 @@ html {
   transition: background-image 0.8s ease-in-out;
 }
 .hero-coffee {
-  background-image: url("./assets/20.png");
+  background-image: url("./assets/20.webp");
 
   background-repeat: no-repeat;
   background-position: center;
