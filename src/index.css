@@ -103,7 +103,7 @@ html {
   transition: background-image 0.8s ease-in-out;
 }
 .hero-workshop {
-  background-image: url("./assets/18.png");
+  background-image: url("/assets/18.webp");
 
   background-repeat: no-repeat;
   background-position: center;
@@ -115,7 +115,6 @@ html {
 }
 .hero-kids {
   background-image: url("/assets/19.webp");
-
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -126,7 +125,6 @@ html {
 }
 .hero-coffee {
   background-image: url("/assets/20.webp");
-
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -136,15 +134,15 @@ html {
   transition: background-image 0.8s ease-in-out;
 }
 .bg-default {
-  background-image: url("./assets/18.png");
+  background-image: url("/assets/18.webp");
 }
 
 .bg-kids {
-  background-image: url("./assets/19.png");
+  background-image: url("/assets/19.webp");
 }
 
 .bg-coffee {
-  background-image: url("./assets/20.png");
+  background-image: url("/assets/20.webp");
 }
 
 .link-underline {
