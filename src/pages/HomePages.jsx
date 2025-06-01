@@ -16,7 +16,6 @@ const HomePage = () => {
         loadedCount++;
         if (loadedCount === images.length) {
           setBgLoaded(true);
-          console.log("loaded");
         }
       };
     });
