@@ -34,13 +34,17 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-10 text-xl items-center">
-          <a className="nav-link" href="#">
+          <a
+            onClick={() => window.scrollTo(0, 0)}
+            href="#anasayfa"
+            className="nav-link"
+          >
             ANASAYFA
           </a>
           <a className="nav-link" href="#" onClick={() => setShowModal(true)}>
             HAKKIMIZDA
           </a>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="#konsept">
             KONSEPT
           </a>
           <a href="#iletisim" className="nav-link">
@@ -69,7 +73,7 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="flex flex-col items-center gap-8 text-black">
-            <a href="#" onClick={() => setMenuOpen(false)}>
+            <a href="#anasayfa" onClick={() => setMenuOpen(false)}>
               ANASAYFA
             </a>
             <a
@@ -81,7 +85,7 @@ const Navbar = () => {
             >
               HAKKIMIZDA
             </a>
-            <a href="#" onClick={() => setMenuOpen(false)}>
+            <a href="#konsept" onClick={() => setMenuOpen(false)}>
               KONSEPT
             </a>
             <a href="#iletisim" onClick={() => setMenuOpen(false)}>

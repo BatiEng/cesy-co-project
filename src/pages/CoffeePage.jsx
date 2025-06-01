@@ -117,7 +117,7 @@ const CoffeePage = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center p-6 sm:p-10 ">
+      <div id="konsept" className="flex flex-col items-center p-6 sm:p-10 ">
         <h1 className="text-[#C66E31] text-3xl sm:text-5xl mb-5 text-center">
           Favori Kahve Lezzetlerimiz
         </h1>

@@ -13,6 +13,7 @@ import image24 from "../assets/47.png";
 import image25 from "../assets/48.png";
 import image26 from "../assets/49.png";
 import image27 from "../assets/50.png";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const KidsPage = () => {
@@ -35,7 +36,12 @@ const KidsPage = () => {
       <div className="hero-kids">
         <div className="">
           <Navbar />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             <div className="flex items-center justify-center flex flex-col text-white">
               <h1
                 className="big-title"
@@ -45,18 +51,30 @@ const KidsPage = () => {
               </h1>
               <h2 className="text-5xl hero-subtitle">KIDS</h2>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       <div className="flex flex-col md:flex-row items-center p-6 sm:p-10 gap-8 md:gap-16 mt-10">
         {/* Image Section */}
-        <div className="w-full md:w-1/2">
+        <motion.div
+          className="w-full md:w-1/2"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <img src={image25} alt="a" className="w-full h-auto rounded-xl" />
-        </div>
+        </motion.div>
 
         {/* Text Section */}
-        <div className="w-full md:w-1/2">
+        <motion.div
+          className="w-full md:w-1/2"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h3 className="text-[#7E5246] text-2xl sm:text-3xl mb-4">
             Minik Kalpler İçin Büyük Deneyimler
           </h3>
@@ -68,10 +86,16 @@ const KidsPage = () => {
             anılar, sadece öğrenme değil; keşfetme alanı var. Miniklerin
             gelişimlerini destekliyor, hayal güçlerini serbest bırakıyoruz.
           </p>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="mb-20 px-4 sm:px-10">
+      <motion.div
+        className="mb-20 px-4 sm:px-10"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="hidden sm:flex gap-6 flex-wrap justify-center mt-10">
           {galleryImages.map((img, i) => (
             <img
@@ -126,8 +150,14 @@ const KidsPage = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center justify-center px-4 sm:px-10 py-10 text-center">
+      </motion.div>
+      <motion.div
+        className="flex flex-col items-center justify-center px-4 sm:px-10 py-10 text-center"
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         {/* Image */}
         <div className="w-24 sm:w-32 mb-6 sm:mb-10">
           <img src={image26} alt="Hayal Gücü" className="w-full h-auto" />
@@ -137,9 +167,16 @@ const KidsPage = () => {
         <h2 className="text-3xl sm:text-5xl lg:text-6xl text-[#C66E31] font-semibold leading-snug max-w-3xl">
           Hayal gücü serbest, eğlence sınırsız!
         </h2>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col lg:flex-row  justify-between p-6 sm:p-10 gap-12">
+      <motion.div
+        id="konsept"
+        className="flex flex-col lg:flex-row  justify-between p-6 sm:p-10 gap-12"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         {/* Left Column */}
         <div className="flex flex-col gap-8 lg:w-1/3">
           <div>
@@ -194,9 +231,15 @@ const KidsPage = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="w-full bg-[#FEF7EA] mb-20 py-10 flex items-center justify-center">
+      <motion.div
+        className="w-full bg-[#FEF7EA] mb-20 py-10 flex items-center justify-center"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 px-4">
           <div className="text-[#C66E31] text-4xl sm:text-5xl leading-none">
             “
@@ -216,8 +259,14 @@ const KidsPage = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="mb-20">
+      </motion.div>
+      <motion.div
+        className="mb-20"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <img className="w-full h-[35rem] object-cover" src={image16} alt="" />
         <div className="flex flex-col lg:flex-row justify-between items-center px-6 lg:px-30 gap-16 mt-10">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left ">
@@ -256,8 +305,14 @@ const KidsPage = () => {
             />
           </div>
         </div>
-      </div>
-      <div className="px-4 sm:px-10 mb-20">
+      </motion.div>
+      <motion.div
+        className="px-4 sm:px-10 mb-20"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="hidden sm:flex gap-6 flex-wrap justify-center">
           {images.map((img, i) => (
             <img
@@ -312,10 +367,14 @@ const KidsPage = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div
+      </motion.div>
+      <motion.div
         id="iletisim"
         className="flex flex-col lg:flex-row justify-between items-center gap-10 px-6 sm:px-10 lg:px-40 mb-20 text-center lg:text-left"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
         <div>
           <h3 className="text-[#7E5246] text-3xl sm:text-4xl mb-4">İletişim</h3>
@@ -349,7 +408,7 @@ const KidsPage = () => {
             <p className="text-gray-500 text-lg sm:text-xl">09-23</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

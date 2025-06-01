@@ -14,6 +14,7 @@ import image11 from "../assets/33.png";
 import image12 from "../assets/34.png";
 import image13 from "../assets/35.png";
 import image14 from "../assets/36.png";
+import { motion } from "framer-motion";
 import image15 from "../assets/37.png";
 import { useState } from "react";
 
@@ -45,7 +46,7 @@ const WorkshopPage = () => {
               >
                 Cesy Co.
               </h1>
-              <h2 className="text-5xl hero-subtitle">COFFEE COMPANY</h2>
+              <h2 className="text-5xl hero-subtitle">WORKSHOP</h2>
             </div>
           </div>
         </div>
@@ -100,7 +101,10 @@ const WorkshopPage = () => {
         <h1 className="text-[#C66E31] text-3xl sm:text-5xl mb-10 sm:mb-20 text-center">
           CESY CO. WORKSHOP
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center w-full">
+        <div
+          id="konsept"
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center w-full"
+        >
           <div className="max-w-4xl">
             <h3 className="text-[#7E5246] text-2xl sm:text-3xl mb-4">
               Misyonumuz
