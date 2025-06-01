@@ -1,11 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [bgClass, setBgClass] = useState("bg-kids");
-
   const handleEnter = (cls) => setBgClass(cls);
+  const [bgLoaded, setBgLoaded] = useState(false);
+  useEffect(() => {
+    const images = ["/assets/18.webp", "/assets/19.webp", "/assets/20.webp"];
+    let loadedCount = 0;
 
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setBgLoaded(true);
+          console.log("loaded");
+        }
+      };
+    });
+  }, []);
+
+  if (!bgLoaded) {
+    return (
+      <div className="relative">
+        <div className="absolute inset-0 flex justify-center items-center bg-black text-white z-20">
+          Loading...
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={`hero ${bgClass}`}>
       <div className="text-white text-center  ">
