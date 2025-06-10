@@ -59,7 +59,7 @@ const WorkshopPage = () => {
             <a href="#konsept">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-20 h-20 text-white opacity-80 hover:opacity-100 transition"
+                className="w-10 md:w-20 md:h-20 text-white opacity-80 hover:opacity-100 transition"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
