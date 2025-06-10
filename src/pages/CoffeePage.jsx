@@ -70,7 +70,7 @@ const CoffeePage = () => {
             </div>
           </div>
           <motion.div
-            className="absolute bottom-25 right-10 transform -translate-x-1/2"
+            className="absolute bottom-25 right-0  transform -translate-x-1/2"
             initial={{ y: 0 }}
             animate={{ y: [0, 15, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
