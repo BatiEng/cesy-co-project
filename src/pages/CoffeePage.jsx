@@ -1,10 +1,9 @@
 import Navbar from "../components/Navbar";
+import { motion } from "framer-motion";
 import image1 from "../assets/23.png";
 import image2 from "../assets/24.png";
 import image3 from "../assets/25.png";
 import image4 from "../assets/26.png";
-import image10 from "../assets/32.png";
-import image15 from "../assets/37.png";
 import image16 from "../assets/51.png";
 import image17 from "../assets/52.png";
 import image18 from "../assets/53.png";
@@ -14,8 +13,14 @@ import image21 from "../assets/56.png";
 import image22 from "../assets/57.png";
 import image23 from "../assets/58.png";
 import image24 from "../assets/59.png";
-import image25 from "../assets/39.png";
+
+import logo from "../assets/logo.png";
 import { useState } from "react";
+import Footer from "../components/Footer";
+import ContactWithUs from "../components/ContactWithUs";
+import AfterHero from "../components/AfterHero";
+import QuotesSection from "../components/QuotesSection";
+import ImageGallery from "../components/ImageGallery";
 
 const CoffeePage = () => {
   const coffeeMenu = [
@@ -54,54 +59,54 @@ const CoffeePage = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <div className="hero-coffee">
+      <div className="hero-coffee bg-black">
         <div className="">
           <Navbar />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex items-center justify-center flex flex-col text-white">
-              <h1
-                className="big-title"
-                style={{ fontFamily: "'Yellowtail', cursive" }}
-              >
-                Cesy Co.
-              </h1>
-              <h2 className="text-5xl hero-subtitle">COFFEE COMPANY</h2>
+            <div className=" text-center w-100 sm:w-full flex flex-col text-white">
+              <h2 className="text-2xl  sm:text-3xl  lg:text-4xl bg-black/35 p-10 px-20 rounded-lg">
+                Günün temposuna lezzetli bir mola verin!
+              </h2>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="flex flex-col lg:flex-row gap-10 items-center my-16 mx-6 md:mx-20">
-        <div className="w-full lg:w-[950px]">
-          <img
-            src={image16}
-            alt="a"
-            className="w-full h-auto max-w-sm mx-auto"
-          />
-        </div>
-        <div className="flex flex-col justify-between text-center lg:text-left">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#C66E31] mb-4">
-            En İyi Kalite Kahve, Tek Bir Noktada
-          </h2>
-          <p className="text-gray-500 text-base sm:text-lg md:text-xl leading-relaxed sm:leading-loose">
-            Her fincanda özenle seçilmiş çekirdeklerin, ustalıkla harmanlandığı
-            özel bir deneyime davetlisiniz. Cesy Co. Coffee, kahve tutkunları
-            için lezzetin, özenin ve keyfin buluşma noktasıdır.
-          </p>
-          <div className="mt-8">
-            <a
-              href="#"
-              className="bg-[#C66E31] hover:bg-[#b75f27] btn rounded-full px-6 py-3 text-white text-lg sm:text-xl transition"
-            >
-              Daha Fazla Keşfet
+          <motion.div
+            className="absolute bottom-10 right-10 transform -translate-x-1/2"
+            initial={{ y: 0 }}
+            animate={{ y: [0, 15, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          >
+            <a href="#konsept">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-20 h-20 text-white opacity-80 hover:opacity-100 transition"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
+
+      <AfterHero
+        img={image16}
+        title="En İyi Kalite Kahve, Tek Bir Noktada"
+        subTitle="Her fincanda özenle seçilmiş çekirdeklerin, ustalıkla harmanlandığı
+            özel bir deneyime davetlisiniz. Cesy Co. Coffee, kahve tutkunları
+            için lezzetin, özenin ve keyfin buluşma noktasıdır."
+      />
       <div className="w-full py-20 bg-[#FEF7EA] mb-20 px-6 sm:px-10 lg:px-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20">
           {/* Text with vertical line */}
-          <div className="relative pl-6 border-l-4 border-[#C66E31] text-gray-500 max-w-3xl">
-            <p className="text-xl">
+          <div className="relative pl-6 border-l-4 border-[#D96B1A] text-gray-500 max-w-3xl">
+            <p className="text-xl menu-title">
               Kahve tutkusunu paylaşan girişimcilerle birlikte büyümeye devam
               ediyoruz. Eğer siz de <strong>CESY CO.</strong>’nun sıcak
               atmosferini, lezzet dolu menüsünü ve yaratıcı atölye konseptini
@@ -110,15 +115,28 @@ const CoffeePage = () => {
             </p>
           </div>
 
-          {/* Button */}
-          <button className="bg-[#C66E31] text-white text-base sm:text-lg px-6 py-3 rounded-full hover:bg-[#b75f27] transition whitespace-nowrap">
-            Franchise Başvuru
+          <button
+            onClick={() => setShowModal(false)}
+            type="submit"
+            className="relative inline-flex items-center justify-center px-6 py-3 font-medium text-white group"
+          >
+            <span class="relative z-10">Franchise Başvuru</span>
+
+            <svg
+              class="absolute inset-0 w-full h-full z-0"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="-0.706 -1.436 186 52"
+              preserveAspectRatio="none"
+              fill="#D96B1A"
+            >
+              <path d="M9.33 -0.46 C12.98 -0.14 17.58 0.38 22.61 0.16 31.15 -0.2 41.01 -1.43 54.51 -1.43 61.53 -1.43 72.62 -0.46 81.38 0.09 81.77 0.11 82.17 0.14 82.56 0.16 95.57 0.93 114.82 -0.24 128.49 0.16 141.93 0.56 155.38 -1.34 165.6 -1.43 171.71 -1.58 177.81 -1.04 183.8 0.16 183.8 0.16 185.28 0.8 185.28 13.35 185.28 19.59 184.18 28.68 183.8 36.65 183.44 44.09 183.8 50.38 183.8 50.38 177.05 50.06 170.31 49.74 163.56 49.42 155.74 50.2 147.88 50.52 140.03 50.38 127.02 50.16 120.86 48.53 111.52 48.53 78.4 48.53 83.18 50.16 61.29 50.38 39.4 50.61 31.85 49.54 23.95 49.42 10.61 49.22 0.43 51.12 0.08 50.38 -1.54 46.95 -0.23 44.23 0.08 36.65 0.39 29.07 1.78 24.94 1.78 15.81 1.78 10.91 -1.6 3.06 1.78 0.16 3 -0.88 5.69 -0.77 9.33 -0.46 )" />
+            </svg>
           </button>
         </div>
       </div>
 
       <div id="konsept" className="flex flex-col items-center p-6 sm:p-10 ">
-        <h1 className="text-[#C66E31] text-3xl sm:text-5xl mb-5 text-center">
+        <h1 className="text-[#D96B1A] text-3xl sm:text-5xl menu-title mb-5 text-center">
           Favori Kahve Lezzetlerimiz
         </h1>
         <p className="text-gray-500 text-xl mb-10 sm:mb-20">
@@ -133,7 +151,7 @@ const CoffeePage = () => {
                 className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-[#C2A291] pb-4 gap-4"
               >
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-[#743F2B]">
+                  <h3 className="text-[30px] menu-title text-[#743F2B]">
                     {item.name}
                   </h3>
                   <p className="text-gray-500 mt-1 text-base sm:text-lg">
@@ -142,12 +160,26 @@ const CoffeePage = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <span className="text-[#743F2B] font-bold text-xl sm:text-2xl">
+                  <span className="text-[#743F2B] menu-title text-[19px]">
                     {item.price}
                   </span>
                   {item.isNew && (
-                    <span className="bg-[#E87817] text-white text-sm px-4 py-1 rounded-full font-semibold">
-                      NEW
+                    <span
+                      onClick={() => setShowModal(false)}
+                      type="submit"
+                      className="relative inline-flex items-center justify-center px-3 py-1 font-medium text-white group"
+                    >
+                      <span class="relative z-10">NEW</span>
+
+                      <svg
+                        class="absolute inset-0 w-full h-full z-0"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="-0.706 -1.436 186 52"
+                        preserveAspectRatio="none"
+                        fill="#D96B1A"
+                      >
+                        <path d="M9.33 -0.46 C12.98 -0.14 17.58 0.38 22.61 0.16 31.15 -0.2 41.01 -1.43 54.51 -1.43 61.53 -1.43 72.62 -0.46 81.38 0.09 81.77 0.11 82.17 0.14 82.56 0.16 95.57 0.93 114.82 -0.24 128.49 0.16 141.93 0.56 155.38 -1.34 165.6 -1.43 171.71 -1.58 177.81 -1.04 183.8 0.16 183.8 0.16 185.28 0.8 185.28 13.35 185.28 19.59 184.18 28.68 183.8 36.65 183.44 44.09 183.8 50.38 183.8 50.38 177.05 50.06 170.31 49.74 163.56 49.42 155.74 50.2 147.88 50.52 140.03 50.38 127.02 50.16 120.86 48.53 111.52 48.53 78.4 48.53 83.18 50.16 61.29 50.38 39.4 50.61 31.85 49.54 23.95 49.42 10.61 49.22 0.43 51.12 0.08 50.38 -1.54 46.95 -0.23 44.23 0.08 36.65 0.39 29.07 1.78 24.94 1.78 15.81 1.78 10.91 -1.6 3.06 1.78 0.16 3 -0.88 5.69 -0.77 9.33 -0.46 )" />
+                      </svg>
                     </span>
                   )}
                 </div>
@@ -185,7 +217,7 @@ const CoffeePage = () => {
                 className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-[#C2A291] pb-4 gap-4"
               >
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-[#743F2B]">
+                  <h3 className="menu-title text-[#743F2B] text-[30px]">
                     {item.name}
                   </h3>
                   <p className="text-gray-500 mt-1 text-base sm:text-lg">
@@ -194,12 +226,26 @@ const CoffeePage = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <span className="text-[#743F2B] font-bold text-xl sm:text-2xl">
+                  <span className="text-[#743F2B] menu-title text-[19px]">
                     {item.price}
                   </span>
                   {item.isNew && (
-                    <span className="bg-[#E87817] text-white text-sm px-4 py-1 rounded-full font-semibold">
-                      NEW
+                    <span
+                      onClick={() => setShowModal(false)}
+                      type="submit"
+                      className="relative inline-flex items-center justify-center px-3 py-1 font-medium text-white group"
+                    >
+                      <span class="relative z-10">NEW</span>
+
+                      <svg
+                        class="absolute inset-0 w-full h-full z-0"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="-0.706 -1.436 186 52"
+                        preserveAspectRatio="none"
+                        fill="#D96B1A"
+                      >
+                        <path d="M9.33 -0.46 C12.98 -0.14 17.58 0.38 22.61 0.16 31.15 -0.2 41.01 -1.43 54.51 -1.43 61.53 -1.43 72.62 -0.46 81.38 0.09 81.77 0.11 82.17 0.14 82.56 0.16 95.57 0.93 114.82 -0.24 128.49 0.16 141.93 0.56 155.38 -1.34 165.6 -1.43 171.71 -1.58 177.81 -1.04 183.8 0.16 183.8 0.16 185.28 0.8 185.28 13.35 185.28 19.59 184.18 28.68 183.8 36.65 183.44 44.09 183.8 50.38 183.8 50.38 177.05 50.06 170.31 49.74 163.56 49.42 155.74 50.2 147.88 50.52 140.03 50.38 127.02 50.16 120.86 48.53 111.52 48.53 78.4 48.53 83.18 50.16 61.29 50.38 39.4 50.61 31.85 49.54 23.95 49.42 10.61 49.22 0.43 51.12 0.08 50.38 -1.54 46.95 -0.23 44.23 0.08 36.65 0.39 29.07 1.78 24.94 1.78 15.81 1.78 10.91 -1.6 3.06 1.78 0.16 3 -0.88 5.69 -0.77 9.33 -0.46 )" />
+                      </svg>
                     </span>
                   )}
                 </div>
@@ -208,27 +254,9 @@ const CoffeePage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#FEF7EA] mb-20 py-10 flex items-center justify-center">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 px-4">
-          <div className="text-[#C66E31] text-4xl sm:text-5xl leading-none">
-            “
-          </div>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10 text-[#C66E31]">
-            <div className="hidden sm:block text-3xl sm:text-5xl cursor-pointer">
-              ←
-            </div>
-            <p className="text-xl sm:text-3xl font-medium text-center sm:text-left px-2">
-              Çekirdekten fincana kadar geçen her aşamayı özenle seçiyor, kahve
-              deneyimini bir ritüele dönüştürüyoruz.
-            </p>
-            <div className="hidden sm:block text-3xl sm:text-5xl cursor-pointer">
-              →
-            </div>
-          </div>
-        </div>
-      </div>
+      <QuotesSection />
       <div className="mb-20 px-4 sm:px-10">
-        <h1 className="text-[#C66E31] text-4xl sm:text-6xl text-center">
+        <h1 className="text-[#D96B1A] menu-title text-4xl sm:text-6xl text-center">
           Galerimiz
         </h1>
         <p className="text-xl sm:text-2xl mt-4 text-center text-gray-500">
@@ -254,7 +282,7 @@ const CoffeePage = () => {
               className={`w-10 h-10 flex items-center justify-center rounded-full text-white text-xl font-semibold transition-all duration-300 ${
                 galleryCurrent === 0
                   ? "bg-gray-300 cursor-not-allowed opacity-50"
-                  : "bg-[#C66E31] hover:bg-[#b75f27] hover:scale-110 shadow-md"
+                  : "bg-[#D96B1A] hover:bg-[#b75f27] hover:scale-110 shadow-md"
               }`}
             >
               ←
@@ -270,7 +298,7 @@ const CoffeePage = () => {
               className={`w-10 h-10 flex items-center justify-center rounded-full text-white text-xl font-semibold transition-all duration-300 ${
                 galleryCurrent === galleryImages.length - 1
                   ? "bg-gray-300 cursor-not-allowed opacity-50"
-                  : "bg-[#C66E31] hover:bg-[#b75f27] hover:scale-110 shadow-md"
+                  : "bg-[#D96B1A] hover:bg-[#b75f27] hover:scale-110 shadow-md"
               }`}
             >
               →
@@ -282,7 +310,7 @@ const CoffeePage = () => {
                 key={i}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   i === galleryCurrent
-                    ? "bg-[#C66E31] scale-125"
+                    ? "bg-[#D96B1A] scale-125"
                     : "bg-gray-400"
                 }`}
               />
@@ -290,139 +318,9 @@ const CoffeePage = () => {
           </div>
         </div>
       </div>
-      <div className="mb-20">
-        <img className="w-full h-[35rem] object-cover" src={image25} alt="" />
-        <div className="flex flex-col lg:flex-row justify-between items-center px-6 lg:px-30 gap-16 mt-10">
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left ">
-            <h2 className="text-[#C66E31] text-4xl">
-              Herhangi Bir Sorunuz Varsa
-            </h2>
-            <h2 className="text-[#C66E31] text-4xl mb-10">
-              Bizimle İletişime Geçin
-            </h2>
-            <div className="flex flex-col gap-6">
-              <input
-                type="text"
-                placeholder="İsminiz"
-                className="bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-[#C66E31] text-lg px-2 py-1 w-72"
-              />
-              <input
-                type="email"
-                placeholder="E-posta adresiniz"
-                className="bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-[#C66E31] text-lg px-2 py-1 w-72"
-              />
-              <input
-                type="text"
-                placeholder="Mesajınız"
-                className="bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-[#C66E31] text-lg px-2 py-1 w-72"
-              />
-              <button className="bg-[#C66E31] text-white text-lg px-6 py-2 rounded-full hover:bg-[#b75f27] transition cursor-pointer">
-                Katılım talebi oluştur.
-              </button>
-            </div>
-          </div>
-          <div className="max-w-md">
-            <img
-              className="w-full h-auto object-contain"
-              src={image10}
-              alt="Contact Visual"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="px-4 sm:px-10 mb-20">
-        <div className="hidden sm:flex gap-6 flex-wrap justify-center">
-          {images.map((img, i) => (
-            <img
-              key={i}
-              className="w-[16rem] sm:w-[20rem] h-[16rem] sm:h-[20rem] object-cover rounded-xl"
-              src={img}
-              alt=""
-            />
-          ))}
-        </div>
-        {/* Mobile View: One image with pagination arrows outside */}
-        <div className="sm:hidden flex flex-col items-center gap-6 mt-10">
-          <div className="flex items-center justify-center gap-4">
-            <button
-              onClick={galleryPrev}
-              disabled={galleryCurrent === 0}
-              className={`w-10 h-10 flex items-center justify-center rounded-full text-white text-xl font-semibold transition-all duration-300 ${
-                galleryCurrent === 0
-                  ? "bg-gray-300 cursor-not-allowed opacity-50"
-                  : "bg-[#C66E31] hover:bg-[#b75f27] hover:scale-110 shadow-md"
-              }`}
-            >
-              ←
-            </button>
-            <img
-              className="w-[16rem] h-[16rem] object-cover rounded-xl shadow-lg"
-              src={images[galleryCurrent]}
-              alt=""
-            />
-            <button
-              onClick={galleryNext}
-              disabled={galleryCurrent === images.length - 1}
-              className={`w-10 h-10 flex items-center justify-center rounded-full text-white text-xl font-semibold transition-all duration-300 ${
-                galleryCurrent === images.length - 1
-                  ? "bg-gray-300 cursor-not-allowed opacity-50"
-                  : "bg-[#C66E31] hover:bg-[#b75f27] hover:scale-110 shadow-md"
-              }`}
-            >
-              →
-            </button>
-          </div>
-          <div className="flex gap-2">
-            {images.map((_, i) => (
-              <div
-                key={i}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  i === galleryCurrent
-                    ? "bg-[#C66E31] scale-125"
-                    : "bg-gray-400"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-      <div
-        id="iletisim"
-        className="flex flex-col lg:flex-row justify-between items-center gap-10 px-6 sm:px-10 lg:px-40 mb-20 text-center lg:text-left"
-      >
-        <div>
-          <h3 className="text-[#7E5246] text-3xl sm:text-4xl mb-4">İletişim</h3>
-          <p className="text-gray-500 text-lg sm:text-xl mb-2">0556 842 9165</p>
-          <p className="text-gray-500 text-lg sm:text-xl mb-2">
-            info@cesyco.com
-          </p>
-          <p className="text-gray-500 text-lg sm:text-xl mb-2">Buca / İzmir</p>
-        </div>
-        <div>
-          <img
-            className="w-[8rem] sm:w-[10rem] h-[8rem] sm:h-[10rem] object-cover rounded-xl"
-            src={image15}
-            alt=""
-          />
-        </div>
-        <div>
-          <h3 className="text-[#7E5246] text-3xl sm:text-4xl mb-4">
-            Çalışma Saatleri
-          </h3>
-          <div className="flex justify-between mb-2 w-[200px] sm:w-[250px] mx-auto lg:mx-0">
-            <p className="text-gray-500 text-lg sm:text-xl">Mon-Fri</p>
-            <p className="text-gray-500 text-lg sm:text-xl">09-22</p>
-          </div>
-          <div className="flex justify-between mb-2 w-[200px] sm:w-[250px] mx-auto lg:mx-0">
-            <p className="text-gray-500 text-lg sm:text-xl">Saturday</p>
-            <p className="text-gray-500 text-lg sm:text-xl">09-01</p>
-          </div>
-          <div className="flex justify-between mb-2 w-[200px] sm:w-[250px] mx-auto lg:mx-0">
-            <p className="text-gray-500 text-lg sm:text-xl">Sunday</p>
-            <p className="text-gray-500 text-lg sm:text-xl">09-23</p>
-          </div>
-        </div>
-      </div>
+      <ContactWithUs />
+      <ImageGallery images={images} />
+      <Footer />
     </div>
   );
 };
