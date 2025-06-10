@@ -21,6 +21,7 @@ import ContactWithUs from "../components/ContactWithUs";
 import AfterHero from "../components/AfterHero";
 import QuotesSection from "../components/QuotesSection";
 import ImageGallery from "../components/ImageGallery";
+import Arrow from "../components/Arrow";
 
 const KidsPage = () => {
   const images = [
@@ -65,7 +66,7 @@ const KidsPage = () => {
           </motion.div>
         </div>
       </div>
-
+      <Arrow />
       <AfterHero
         img={image25}
         title="Minik Kalpler İçin Büyük Deneyimler"

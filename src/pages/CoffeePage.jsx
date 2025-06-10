@@ -21,6 +21,7 @@ import ContactWithUs from "../components/ContactWithUs";
 import AfterHero from "../components/AfterHero";
 import QuotesSection from "../components/QuotesSection";
 import ImageGallery from "../components/ImageGallery";
+import Arrow from "../components/Arrow";
 
 const CoffeePage = () => {
   const coffeeMenu = [
@@ -76,7 +77,7 @@ const CoffeePage = () => {
           </motion.div>
         </div>
       </div>
-
+      <Arrow />
       <AfterHero
         img={image16}
         title="En İyi Kalite Kahve, Tek Bir Noktada"

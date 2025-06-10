@@ -22,6 +22,7 @@ import ContactWithUs from "../components/ContactWithUs";
 import AfterHero from "../components/AfterHero";
 import QuotesSection from "../components/QuotesSection";
 import ImageGallery from "../components/ImageGallery";
+import Arrow from "../components/Arrow";
 
 const WorkshopPage = () => {
   const images = [image11, image12, image13, image14, image10, image2, image9];
@@ -52,7 +53,7 @@ const WorkshopPage = () => {
           </div>
         </div>
       </div>
-
+      <Arrow />
       <AfterHero
         img={image}
         title="Yaratıcılığın Buluşma Noktası"
