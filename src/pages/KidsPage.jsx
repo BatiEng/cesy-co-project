@@ -52,12 +52,12 @@ const KidsPage = () => {
         <div className="">
           <Navbar />
           <motion.div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <div className=" text-center w-97 sm:w-full flex flex-col text-white">
+            <div className=" text-center  sm:w-full flex flex-col text-white">
               <h2 className="text-2xl  sm:text-3xl  lg:text-4xl bg-black/35 p-10 px-20 rounded-lg">
                 Güvenilir, eğitici ve eğlenceli aktiviteler ile çocuklarınız
                 sosyalleşsin!
