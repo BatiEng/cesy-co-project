@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import kids1v from "../assets/kids-1v.jpeg";
 import kids2v from "../assets/kids-2v.jpeg";
 import kids3v from "../assets/kids-3v.jpeg";
@@ -63,11 +63,18 @@ function ContactWithUs({ theme = "kids" }) {
     <div className="">
       {/* Image slider with text */}
       <div className="relative w-full h-[35rem] overflow-hidden">
-        <img
-          src={slides[current].img}
-          className="w-full h-full object-cover transition duration-500"
-          alt="Slide"
-        />
+        <AnimatePresence>
+          <motion.img
+            key={current}
+            src={slides[current].img}
+            className="w-full h-full object-cover"
+            alt="Slide"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white text-center px-4">
           <p className="text-xl sm:text-2xl">Konsept</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-2 mt-3 sm:mt-10">
@@ -82,14 +89,14 @@ function ContactWithUs({ theme = "kids" }) {
             setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
           }
         >
-          &#8592;
+          ←
         </button>
 
         <button
           className="hidden md:flex absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
           onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
         >
-          &#8594;
+          →
         </button>
 
         {/* Dots */}
