@@ -9,10 +9,21 @@ function Footer() {
       >
         <div>
           <h3 className="text-[#855043] text-[24px] mb-4">İletişim</h3>
-          <p className="text-gray-500 text-[17px] mb-2">0556 842 9165</p>
-          <p className="text-gray-500 text-[17px] mb-2">info@cesyco.com</p>
+          <a
+            href="tel:05568429165"
+            className="text-gray-500 text-[17px] mb-2 block hover:text-[#855043] transition"
+          >
+            0556 842 9165
+          </a>
+          <a
+            href="mailto:info@cesyco.com"
+            className="text-gray-500 text-[17px] mb-2 block hover:text-[#855043] transition"
+          >
+            info@cesyco.com
+          </a>
           <p className="text-gray-500 text-[17px] mb-2">Buca / İzmir</p>
         </div>
+
         <div>
           <img
             className="w-[7rem] sm:w-[9rem] h-[8rem] sm:h-[11rem] object-cover rounded-xl"
