@@ -23,12 +23,14 @@ import AfterHero from "../components/AfterHero";
 import QuotesSection from "../components/QuotesSection";
 import ImageGallery from "../components/ImageGallery";
 import Arrow from "../components/Arrow";
+import AboutPage from "../components/AboutPage";
 
 const WorkshopPage = () => {
   const images = [image11, image12, image13, image14, image10, image2, image9];
   const galleryImages = [image5, image6, image7, image8]; // Images for Galerimiz section
 
   const [galleryCurrent, setGalleryCurrent] = useState(0); // State for Galerimiz carousel
+  const [selectedImage, setSelectedImage] = useState(null); // State for full-screen image
 
   const galleryNext = () => {
     if (galleryCurrent < galleryImages.length - 1)
@@ -39,18 +41,31 @@ const WorkshopPage = () => {
     if (galleryCurrent > 0) setGalleryCurrent(galleryCurrent - 1);
   };
 
+  const handleImageClick = (img) => {
+    setSelectedImage(img);
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className="overflow-x-hidden">
       <div className="hero-workshop bg-black">
         <div className="">
           <Navbar />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             <div className=" text-center w-100 sm:w-full flex flex-col text-white">
               <h2 className="text-2xl  sm:text-3xl  lg:text-4xl bg-black/35 p-10 px-20 rounded-lg">
                 Keyif dolu yeni hobiler edinin, yeni yetenekler kazanın.
               </h2>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <Arrow />
@@ -62,7 +77,12 @@ const WorkshopPage = () => {
             gerçekleşen atölyelerde; sanat, tasarım, el iş, gastronomi ve daha
             pek çok farklı disiplini bir araya getiriyoruz."
       />
-      <div className="w-full lg:h-[300px] py-10 bg-[#FEF7EA] mb-10 flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="w-full lg:h-[300px] py-10 bg-[#FEF7EA] mb-10 flex items-center justify-center"
+      >
         <div className="flex flex-col sm:flex-row flex-wrap gap-6 sm:gap-10 items-center justify-center">
           <input
             type="text"
@@ -83,12 +103,11 @@ const WorkshopPage = () => {
             type="submit"
             className="relative inline-flex items-center justify-center px-6 py-3 font-medium text-white group"
           >
-            <span class="relative z-10 text-[13px]">
+            <span className="relative z-10 text-[13px]">
               Katılım Talebi oluştur
             </span>
-
             <svg
-              class="absolute inset-0 w-full h-full z-0"
+              className="absolute inset-0 w-full h-full z-0"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="-0.706 -1.436 186 52"
               preserveAspectRatio="none"
@@ -98,8 +117,13 @@ const WorkshopPage = () => {
             </svg>
           </button>
         </div>
-      </div>
-      <div className="flex flex-col items-center p-6 sm:p-10">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="flex flex-col items-center p-6 sm:p-10"
+      >
         <h1 className="text-[#D96B1A] menu-title text-3xl sm:text-5xl mb-10 sm:mb-20 text-center">
           CESY CO. WORKSHOP
         </h1>
@@ -107,7 +131,13 @@ const WorkshopPage = () => {
           id="konsept"
           className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center w-full"
         >
-          <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-4xl"
+          >
             <h3 className="text-[#855043] text-2xl sm:text-3xl mb-4">
               Misyonumuz
             </h3>
@@ -117,8 +147,14 @@ const WorkshopPage = () => {
               ilham dolu atölyeler sunmak. CESY CO. Workshop sadece bir atölye
               değil; paylaşım, öğrenme ve bir etkinlik dönüşüm alanıdır.
             </p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-6"
+          >
             <img
               className="w-[16rem] sm:w-[20rem] h-[16rem] sm:h-[20rem] object-cover rounded-xl"
               src={image1}
@@ -129,8 +165,14 @@ const WorkshopPage = () => {
               src={image2}
               alt=""
             />
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-6"
+          >
             <img
               className="w-[16rem] sm:w-[20rem] h-[16rem] sm:h-[20rem] object-cover rounded-xl"
               src={image3}
@@ -141,43 +183,87 @@ const WorkshopPage = () => {
               src={image4}
               alt=""
             />
-          </div>
-          <div className="max-w-4xl">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-4xl"
+          >
             <h3 className="text-[#855043] text-2xl sm:text-3xl mb-4">
               Vizyonumuz
             </h3>
             <p className="text-style leading-loose text-justify">
-              Sanatın, tasarımın ve ulaşılabilirliğin bir araya geldiği; ilhamın
-              bulaşıcı bir hale dönüştüğü bir ortam oluşturmak. CESY CO.
+              Sanatın, tasarımın ve 未 ve ulaşılabilirliğin bir araya geldiği;
+              ilhamın bulaşıcı bir hale dönüştüğü bir ortam oluşturmak. CESY CO.
               Workshop’u bu hayalin gerçeğe dönüştüğü bir yer haline getirmek.
               Emeğin, fikirlerin özgürce paylaşıldığı; herkesin katkıda
               bulunabildiği yaratıcı üretimin merkezi olan bir topluluk inşa
               etmek.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
       <QuotesSection />
-      <div className="mb-20 px-4 sm:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="mb-20 px-4 sm:px-10"
+      >
         <h1 className="text-[#D96B1A] menu-title text-4xl sm:text-6xl text-center">
           Galerimiz
         </h1>
         <p className="text-xl sm:text-2xl mt-4 text-center text-gray-500">
           Galerimize göz at, atmosferimizi hisset!
         </p>
-        {/* Desktop View: All images */}
-        <div className="hidden sm:flex gap-6 flex-wrap justify-center mt-10">
-          {galleryImages.map((img, i) => (
-            <img
-              key={i}
-              className="w-[14rem] sm:w-[16rem] md:w-[20rem] h-[14rem] sm:h-[16rem] md:h-[20rem] object-cover rounded-xl"
-              src={img}
-              alt=""
-            />
-          ))}
-        </div>
-        {/* Mobile View: One image with pagination */}
-        <div className="sm:hidden flex flex-col items-center gap-6 mt-10">
+
+        {/* Desktop View: Grid with full-screen functionality */}
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="hidden sm:grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1 mt-10 max-w-4xl mx-auto"
+        >
+          {/* First image: spans 2 rows vertically */}
+          <img
+            className="w-full h-[28rem] sm:h-[25rem] md:h-[31rem] object-cover rounded-xl row-span-2 cursor-pointer"
+            src={galleryImages[0]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[0])}
+          />
+
+          {/* Second and third images: stacked vertically */}
+          <img
+            className="w-full h-[14rem] sm:h-[12rem] md:h-[15rem] object-cover rounded-xl cursor-pointer"
+            src={galleryImages[1]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[1])}
+          />
+          <img
+            className="w-full h-[14rem] sm:h-[12rem] md:h-[15rem] object-cover rounded-xl cursor-pointer"
+            src={galleryImages[2]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[2])}
+          />
+
+          {/* Fourth image: spans 2 rows vertically */}
+          <img
+            className="w-full h-[28rem] sm:h-[25rem] md:h-[31rem] object-cover rounded-xl row-span-2 col-start-3 row-start-1 cursor-pointer"
+            src={galleryImages[3]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[3])}
+          />
+        </motion.div>
+
+        {/* Mobile View: Carousel with full-screen functionality */}
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="sm:hidden flex flex-col items-center gap-6 mt-10"
+        >
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={galleryPrev}
@@ -191,9 +277,10 @@ const WorkshopPage = () => {
               ←
             </button>
             <img
-              className="w-[16rem] h-[16rem] object-cover rounded-xl shadow-lg"
+              className="w-[16rem] h-[16rem] object-cover rounded-xl shadow-lg cursor-pointer"
               src={galleryImages[galleryCurrent]}
               alt=""
+              onClick={() => handleImageClick(galleryImages[galleryCurrent])}
             />
             <button
               onClick={galleryNext}
@@ -219,9 +306,36 @@ const WorkshopPage = () => {
               />
             ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+
+        {/* Full-screen image overlay */}
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            onClick={handleClose}
+          >
+            <img
+              src={selectedImage}
+              alt=""
+              className="max-w-[90vw] max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              className="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300"
+              onClick={handleClose}
+              aria-label="Close full-screen image"
+            >
+              ×
+            </button>
+          </motion.div>
+        )}
+      </motion.div>
       <ContactWithUs />
+      <AboutPage />
       <ImageGallery images={images} />
       <Footer />
     </div>

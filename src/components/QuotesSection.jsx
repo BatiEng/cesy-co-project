@@ -33,7 +33,7 @@ function QuotesSection() {
   };
 
   return (
-    <div className="w-full bg-[#FEF7EA] py-5 flex flex-col items-center justify-center mb-10">
+    <motion.div className="w-full bg-[#FEF7EA] py-5 flex flex-col items-center justify-center mb-10">
       <div className="max-w-5xl mx-auto text-center flex flex-col items-center gap-8 px-6">
         {/* Quote Symbol */}
         <motion.div
@@ -81,7 +81,7 @@ function QuotesSection() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

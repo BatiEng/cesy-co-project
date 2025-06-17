@@ -1,4 +1,5 @@
 import image10 from "../assets/32.png";
+import { motion } from "framer-motion";
 import image25 from "../assets/39.png";
 function ContactWithUs() {
   return (
@@ -6,7 +7,13 @@ function ContactWithUs() {
       <div className="mb-20">
         <img className="w-full h-[35rem] object-cover" src={image25} alt="" />
         <div className="flex flex-col lg:flex-row justify-between items-center px-6 lg:px-30 gap-16 mt-10">
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left ">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center lg:items-start text-center lg:text-left "
+          >
             <h2 className="text-[#D96B1A] menu-title text-4xl">
               Herhangi Bir Sorunuz Varsa
             </h2>
@@ -34,10 +41,10 @@ function ContactWithUs() {
                 type="submit"
                 className="relative inline-flex items-center justify-center px-6 py-3 font-medium text-white group"
               >
-                <span class="relative z-10">İletişime Geçin</span>
+                <span className="relative z-10">İletişime Geçin</span>
 
                 <svg
-                  class="absolute inset-0 w-full h-full z-0"
+                  className="absolute inset-0 w-full h-full z-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="-0.706 -1.436 186 52"
                   preserveAspectRatio="none"
@@ -47,14 +54,20 @@ function ContactWithUs() {
                 </svg>
               </button>
             </div>
-          </div>
-          <div className="max-w-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-md"
+          >
             <img
               className="w-full h-auto object-contain"
               src={image10}
               alt="Contact Visual"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

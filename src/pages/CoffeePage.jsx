@@ -22,6 +22,7 @@ import AfterHero from "../components/AfterHero";
 import QuotesSection from "../components/QuotesSection";
 import ImageGallery from "../components/ImageGallery";
 import Arrow from "../components/Arrow";
+import AboutPage from "../components/AboutPage";
 
 const CoffeePage = () => {
   const coffeeMenu = [
@@ -48,7 +49,13 @@ const CoffeePage = () => {
   const galleryImages = [image17, image18, image19, image20]; // Images for Galerimiz section
 
   const [galleryCurrent, setGalleryCurrent] = useState(0); // State for Galerimiz carousel
-
+  const [selectedImage, setSelectedImage] = useState(null);
+  const handleImageClick = (img) => {
+    setSelectedImage(img);
+  };
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
   const galleryNext = () => {
     if (galleryCurrent < galleryImages.length - 1)
       setGalleryCurrent(galleryCurrent + 1);
@@ -127,7 +134,13 @@ const CoffeePage = () => {
           doyulmaz bir deneyim sunar.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center w-full">
-          <div className="px-6 sm:px-16 py-12 space-y-12 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="px-6 sm:px-16 py-12 space-y-12 max-w-4xl mx-auto"
+          >
             {coffeeMenu.map((item, index) => (
               <div
                 key={index}
@@ -168,20 +181,27 @@ const CoffeePage = () => {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            <img
-              className="w-[16rem] sm:w-[20rem] h-[16rem] sm:h-[20rem] object-cover rounded-xl"
-              src={image1}
-              alt=""
-            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-6"
+          >
             <img
               className="hidden sm:block w-[16rem] sm:w-[20rem] h-[16rem] sm:h-[20rem] object-cover rounded-xl"
               src={image2}
               alt=""
             />
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-6"
+          >
             <img
               className="hidden w-[16rem] sm:w-[20rem] h-[16rem] sm:h-[20rem] object-cover rounded-xl"
               src={image3}
@@ -192,8 +212,14 @@ const CoffeePage = () => {
               src={image4}
               alt=""
             />
-          </div>
-          <div className="px-6 sm:px-16 py-12 space-y-12 max-w-4xl mx-auto">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="px-6 sm:px-16 py-12 space-y-12 max-w-4xl mx-auto"
+          >
             {coffeeMenu.map((item, index) => (
               <div
                 key={index}
@@ -234,7 +260,7 @@ const CoffeePage = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
       <QuotesSection />
@@ -246,16 +272,42 @@ const CoffeePage = () => {
           Galerimize göz at, atmosferimizi hisset!
         </p>
         {/* Desktop View: All images */}
-        <div className="hidden sm:flex gap-6 flex-wrap justify-center mt-10">
-          {galleryImages.map((img, i) => (
-            <img
-              key={i}
-              className="w-[14rem] sm:w-[16rem] md:w-[20rem] h-[14rem] sm:h-[16rem] md:h-[20rem] object-cover rounded-xl"
-              src={img}
-              alt=""
-            />
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="hidden sm:grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1 mt-10 max-w-4xl mx-auto"
+        >
+          {/* First image: spans 2 rows vertically */}
+          <img
+            className="w-full h-[28rem] sm:h-[25rem] md:h-[31rem] object-cover rounded-xl row-span-2 cursor-pointer"
+            src={galleryImages[0]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[0])}
+          />
+
+          {/* Second and third images: stacked vertically */}
+          <img
+            className="w-full h-[14rem] sm:h-[12rem] md:h-[15rem] object-cover rounded-xl cursor-pointer"
+            src={galleryImages[1]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[1])}
+          />
+          <img
+            className="w-full h-[14rem] sm:h-[12rem] md:h-[15rem] object-cover rounded-xl cursor-pointer"
+            src={galleryImages[2]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[2])}
+          />
+
+          {/* Fourth image: spans 2 rows vertically */}
+          <img
+            className="w-full h-[28rem] sm:h-[25rem] md:h-[31rem] object-cover rounded-xl row-span-2 col-start-3 row-start-1 cursor-pointer"
+            src={galleryImages[3]}
+            alt=""
+            onClick={() => handleImageClick(galleryImages[3])}
+          />
+        </motion.div>
         {/* Mobile View: One image with pagination */}
         <div className="sm:hidden flex flex-col items-center gap-6 mt-10">
           <div className="flex items-center justify-center gap-4">
@@ -300,8 +352,33 @@ const CoffeePage = () => {
             ))}
           </div>
         </div>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            onClick={handleClose}
+          >
+            <img
+              src={selectedImage}
+              alt=""
+              className="max-w-[90vw] max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              className="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300"
+              onClick={handleClose}
+              aria-label="Close full-screen image"
+            >
+              ×
+            </button>
+          </motion.div>
+        )}
       </div>
       <ContactWithUs />
+      <AboutPage />
       <ImageGallery images={images} />
       <Footer />
     </div>

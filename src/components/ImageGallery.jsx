@@ -43,14 +43,20 @@ const ImageGallery = ({ images }) => {
   };
 
   return (
-    <div className="w-full py-8 px-4 sm:px-8 mb-20">
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="w-full py-8 px-4 sm:px-8 mb-20"
+    >
       <div className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-6">
         {/* Slider */}
         <div className="relative w-full overflow-hidden rounded-2xl">
           <div className="flex items-center justify-center gap-4">
-            <AnimatePresence initial={false} mode="wait">
+            <AnimatePresence mode="wait">
               <motion.div
-                key={galleryCurrent}
+                key={galleryCurrent} // important for triggering exit/enter
                 variants={slideVariants}
                 initial="initial"
                 animate="animate"
@@ -70,7 +76,7 @@ const ImageGallery = ({ images }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
